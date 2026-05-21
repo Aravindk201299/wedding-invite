@@ -1,0 +1,1 @@
+Upload these files to Netlify, Vercel, or GitHub Pages to publish your wedding website.
