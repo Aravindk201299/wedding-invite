@@ -7,12 +7,14 @@
 <style>
 .reveal{
 opacity:0;
-transform:translateY(80px);
-transition:all 1s ease;
+transform:translateY(100px) scale(0.95);
+filter:blur(8px)
+transition:opacity 1.2s ease, transform 1.2s ease;
 }
 .reveal.active{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0) scale(1);
+filter:blur(0);
 }
 @font-face{
 font-family:'Modernline';
@@ -132,7 +134,7 @@ text-align:center;
 </head>
 <body>
 
-<section class="hero">
+<section class="hero reveal">
 <div class="hero-box">
 <h1>Aravind 💗 Yalini</h1>
 <p>We cordially invite you to celebrate our Special Occasion!</p>
@@ -213,7 +215,7 @@ window.addEventListener('scroll', () => {
 reveals.forEach(reveal => {
 const windowHeight = window.innerHeight;
 const revealTop = reveal.getBoundingClientRect().top;
-const revealPoint = 120;
+const revealPoint = 20;
 
 if(revealTop < windowHeight - revealPoint){
 reveal.classList.add('active');
