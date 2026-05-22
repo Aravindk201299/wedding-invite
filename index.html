@@ -5,6 +5,15 @@
 <title>Aravind ❤️ Yalini Wedding</title>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+.reveal{
+opacity:0;
+transform:translateY(80px);
+transition:all 1s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 @font-face{
 font-family:'Modernline';
 src:url('fonts/modernline.otf') format('opentype');
@@ -139,7 +148,7 @@ text-align:center;
 </div>
 </section>
 
-<section class="hero2">
+<section class="hero2 reveal">
 <h2>திருக்குறள்</h2>
 
 <div class="card" style="text-align:center;font-style:italic;">
@@ -150,7 +159,7 @@ text-align:center;
 
 </section>
 
-<section class="section">
+<section class="section reveal">
 <h2>Wedding Events💫</h2>
 
 <div class="card">
@@ -171,7 +180,7 @@ text-align:center;
 
 </section>
 
-<section class="section">
+<section class="section reveal">
 <h2>Our Moments✨</h2>
 <div class="gallery">
 <img src="assets/photo1.jpeg">
@@ -198,6 +207,24 @@ document.getElementById("hours").innerHTML = Math.floor((distance%(1000*60*60*24
 document.getElementById("minutes").innerHTML = Math.floor((distance%(1000*60*60))/(1000*60));
 document.getElementById("seconds").innerHTML = Math.floor((distance%(1000*60))/1000);
 },1000);
+
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+reveals.forEach(reveal => {
+const windowHeight = window.innerHeight;
+const revealTop = reveal.getBoundingClientRect().top;
+const revealPoint = 120;
+
+if(revealTop < windowHeight - revealPoint){
+reveal.classList.add('active');
+}
+else{
+reveal.classList.remove('active');
+}
+
+});
+
+});
 </script>
 
 
